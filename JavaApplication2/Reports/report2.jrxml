@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44cae34d-17b1-4e7e-9e91-9f56060179a9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     venda.`IDvenda` AS venda_IDvenda,
+     venda.`valorvenda` AS venda_valorvenda,
+     venda.`IDcliente` AS venda_IDcliente,
+     venda.`IDfuncionario` AS venda_IDfuncionario,
+     venda.`selltime` AS venda_selltime,
+     itemvenda.`IDitemvenda` AS itemvenda_IDitemvenda,
+     itemvenda.`IDvenda` AS itemvenda_IDvenda,
+     itemvenda.`desconto` AS itemvenda_desconto,
+     itemvenda.`quantidade` AS itemvenda_quantidade,
+     itemvenda.`IDproduto` AS itemvenda_IDproduto,
+     itemvenda.`precounitario` AS itemvenda_precounitario,
+     produto.`IDproduto` AS produto_IDproduto,
+     produto.`codigo` AS produto_codigo,
+     produto.`descr` AS produto_descr,
+     produto.`quantest` AS produto_quantest,
+     produto.`unidade` AS produto_unidade,
+     produto.`marca` AS produto_marca,
+     produto.`grupo` AS produto_grupo,
+     produto.`valorcusto` AS produto_valorcusto,
+     produto.`lucro` AS produto_lucro,
+     produto.`desconto` AS produto_desconto,
+     produto.`valorvenda` AS produto_valorvenda,
+     cliente.`IDcliente` AS cliente_IDcliente,
+     cliente.`nome` AS cliente_nome,
+     cliente.`CPF` AS cliente_CPF,
+     cliente.`CNPJ` AS cliente_CNPJ,
+     cliente.`Email` AS cliente_Email,
+     cliente.`telefone` AS cliente_telefone,
+     cliente.`datanascimento` AS cliente_datanascimento,
+     cliente.`sexo` AS cliente_sexo,
+     cliente.`celular` AS cliente_celular,
+     cliente.`IDcidade` AS cliente_IDcidade,
+     cliente.`numero` AS cliente_numero,
+     cliente.`obs` AS cliente_obs
+FROM
+     `venda` venda INNER JOIN `itemvenda` itemvenda ON venda.`IDvenda` = itemvenda.`IDvenda`
+     INNER JOIN `produto` produto ON itemvenda.`IDproduto` = produto.`IDproduto`
+     INNER JOIN `cliente` cliente ON venda.`IDcliente` = cliente.`IDcliente`]]>
+	</queryString>
+	<field name="venda_IDvenda" class="java.lang.Integer"/>
+	<field name="venda_valorvenda" class="java.lang.Double"/>
+	<field name="venda_selltime" class="java.sql.Timestamp"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<field name="cliente_CPF" class="java.lang.String"/>
+	<field name="cliente_CNPJ" class="java.lang.String"/>
+	<field name="produto_codigo" class="java.lang.String"/>
+	<field name="itemvenda_precounitario" class="java.lang.Double"/>
+	<field name="itemvenda_quantidade" class="java.lang.Integer"/>
+	<field name="itemvenda_desconto" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="2" width="100" height="20" uuid="a61e805d-f897-4def-a808-5eefd1672220"/>
+				<text><![CDATA[Numero da Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="2" width="100" height="20" uuid="8f67abaa-4629-4fce-8587-47c9540d440b"/>
+				<text><![CDATA[Valor da Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="2" width="100" height="20" uuid="3f49fa31-f169-49cb-9afa-7e8984b8695d"/>
+				<text><![CDATA[Data da Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="2" width="100" height="20" uuid="1e0d876f-2f4a-4e21-825e-5589ea4f850b"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="22" width="100" height="20" uuid="e0e002f2-62be-478b-a934-9784fb866027"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="22" width="100" height="20" uuid="a8d19fd7-81be-4e70-a2a8-3d83316f52d9"/>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="22" width="100" height="20" uuid="1c3f2560-bb8a-45ab-8626-ce7d78b7667e"/>
+				<text><![CDATA[Codigo do Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="22" width="74" height="20" uuid="cfe204cc-9130-427f-99aa-2410ca8f4738"/>
+				<text><![CDATA[Precounitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="22" width="59" height="20" uuid="ec327408-e683-4f98-b252-89de911a01df"/>
+				<text><![CDATA[Quantidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="22" width="56" height="20" uuid="0982d1a0-9c87-433b-b67b-644db2b8a16f"/>
+				<text><![CDATA[Desconto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="13" width="100" height="20" uuid="2fa0a936-0776-4e21-a54e-39c42b418a54"/>
+				<textFieldExpression><![CDATA[$F{venda_IDvenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="13" width="100" height="20" uuid="42d7ec9d-236f-4fbe-8b0d-91f8e8ec6dbb"/>
+				<textFieldExpression><![CDATA[$F{venda_valorvenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="13" width="100" height="20" uuid="fd47a075-0e32-401d-be3b-9e80d4eac6b0"/>
+				<textFieldExpression><![CDATA[$F{venda_selltime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="13" width="100" height="20" uuid="2dcdfacf-f598-4070-b8cd-781a35192228"/>
+				<textFieldExpression><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="33" width="100" height="20" uuid="4f00193e-3b09-4296-9049-9f4b2048aed6"/>
+				<textFieldExpression><![CDATA[$F{cliente_CPF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="33" width="100" height="20" uuid="ab6259c8-d93c-4016-9310-486e7c67a632"/>
+				<textFieldExpression><![CDATA[$F{cliente_CNPJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="33" width="100" height="20" uuid="4ca63d3e-c9b5-484d-bbbc-26de67253c37"/>
+				<textFieldExpression><![CDATA[$F{produto_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="40" width="65" height="39" uuid="6c6010ad-5902-4099-b10e-534fb9875003"/>
+				<textFieldExpression><![CDATA[$F{itemvenda_precounitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="40" width="100" height="20" uuid="1730c9d3-aa28-4a63-86a2-9313d0bc0558"/>
+				<textFieldExpression><![CDATA[$F{itemvenda_quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="40" width="56" height="20" uuid="91c96522-6a72-4639-996c-c6f72c90fb86"/>
+				<textFieldExpression><![CDATA[$F{itemvenda_desconto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
